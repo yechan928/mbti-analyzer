@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import ReactMarkdown from "react-markdown";
+import { SnakeGame } from "./SnakeGame";
 
 const MBTI_FACTS = [
   "MBTI는 1940년대 Isabel Briggs Myers와 그녀의 어머니가 개발했어요.",
@@ -80,16 +81,9 @@ export function LoadingSpinner({ streamText, currentStage }: Props) {
           </article>
         </div>
       ) : (
-        /* 첫 토큰 전 — MBTI 정보 */
-        <div className="flex h-72 flex-col items-center justify-center gap-3 rounded-xl bg-slate-50 p-6 text-center">
-          <span className="text-2xl">🧠</span>
-          <p
-            className="text-sm leading-relaxed text-slate-500 transition-opacity duration-300"
-            style={{ opacity: fadeIn ? 1 : 0 }}
-          >
-            {MBTI_FACTS[factIndex]}
-          </p>
-          <p className="text-xs text-slate-300">AI가 대화를 분석하는 동안 잠시 읽어보세요</p>
+        /* 첫 토큰 전 — 스네이크 게임 */
+        <div className="h-72 rounded-xl border border-slate-100 p-2">
+          <SnakeGame />
         </div>
       )}
 
